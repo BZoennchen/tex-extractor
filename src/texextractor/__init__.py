@@ -87,7 +87,7 @@ def extract(paper_file_name):
 
 def remove_comments(tex_text):
     out = ''
-    print(tex_text.splitlines())
+    # print(tex_text.splitlines())
     for line in tex_text.splitlines():
         new_line = line
         pos = line.find("%")
