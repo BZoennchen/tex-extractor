@@ -35,9 +35,9 @@ def extract_bracket(text, lead, obracket, cbracket):
     if pos > -1:
         text = text[pos + len(lead):]
         startpos, endpos = __extract_within_brackets(text, obracket, cbracket)
-        if startpos >= 0 and endpos >= 0:
+        if startpos >= 0 and endpos >= 0 and text.find('\\'):
             extraction = text[startpos+1:endpos]
-    return extraction
+    return extraction.strip()
 
 
 def extract_optional(text, lead):
@@ -71,7 +71,7 @@ def extract_env(text, env):
         text = text[pos + len("\\begin{" + env + "}"):]
         endpos = text.find("\\end{"+env+"}")
         env_content = text[0:endpos].strip()
-    return env_content
+    return env_content.strip()
 
 
 def extract(paper_file_name):
