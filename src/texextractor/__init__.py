@@ -97,6 +97,14 @@ def remove_comments(tex_text):
     return out.strip()
 
 
+def clear_abstract(abstract):
+    abstract = remove_comments(abstract)
+    abstract = abstract.replace('\n', ' ').replace('\r', '')
+    abstract = re.sub('\s+', ' ', abstract)
+    abstract.replace('\n', ' ').replace('\r', '')
+    return abstract
+
+
 def clear_title(title, is_short_title=False):
     title = title.replace("%", "")
     title = title.replace(r"\\", "")
